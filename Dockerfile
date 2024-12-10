@@ -1,5 +1,5 @@
 # Use the official .NET SDK image for the build stage
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
 
 # Update and upgrade packages (optional step for latest updates)
