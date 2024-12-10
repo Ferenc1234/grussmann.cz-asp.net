@@ -1,4 +1,4 @@
-# Use the official .NET SDK image for the build stage
+# Use the official .NET Core 3.1 SDK image for the build stage
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
 
@@ -6,7 +6,7 @@ WORKDIR /src
 RUN apt-get update && apt-get upgrade -y && apt-get clean
 
 # Copy the project files
-COPY . .
+COPY . . 
 
 # Restore dependencies
 RUN dotnet restore
@@ -14,15 +14,15 @@ RUN dotnet restore
 # Build the project in Release mode
 RUN dotnet publish -c Release -o /app
 
-# Use a smaller runtime image for the final stage
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+# Use the official .NET Core 3.1 runtime image for the runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS runtime
 WORKDIR /app
 
 # Update and upgrade packages in the runtime image (optional)
 RUN apt-get update && apt-get upgrade -y && apt-get clean
 
 # Copy the built application from the build stage
-COPY --from=build /app .
+COPY --from=build /app . 
 
 # Expose the port your application runs on
 EXPOSE 5000
