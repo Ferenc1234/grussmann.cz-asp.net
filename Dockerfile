@@ -21,6 +21,9 @@ WORKDIR /app
 # Update and upgrade packages in the runtime image (optional)
 RUN apt-get update && apt-get upgrade -y && apt-get clean
 
+# Set environment variable to make the app listen on all interfaces (0.0.0.0)
+ENV ASPNETCORE_URLS=http://0.0.0.0:5000
+
 # Copy the built application from the build stage
 COPY --from=build /app . 
 
