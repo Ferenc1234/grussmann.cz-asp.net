@@ -32,3 +32,6 @@ EXPOSE 5000
 
 # Set the entry point for the container
 ENTRYPOINT ["dotnet", "grussmann.cz.dll"]
+
+
+#use "docker run -d -p 8080:5000 app" to run the container
