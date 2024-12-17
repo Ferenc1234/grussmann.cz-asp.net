@@ -1,4 +1,4 @@
-[![Better Stack Badge](https://uptime.betterstack.com/status-badges/v2/monitor/1pfm8.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
+[![Better Stack Badge](https://uptime.betterstack.com/status-badges/v2/monitor/1pfm8.svg)](https://uptime.grussmann.cz)
 
 # Zdrojový kód stránek grussmann.cz ( prozatím pouze [dev.grussmann.cz](dev.grussmann.cz) )
 
