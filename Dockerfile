@@ -8,6 +8,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get clean
 # Copy the project files
 COPY . . 
 
+# Install DevExpress.Xpo and Npgsql dependencies (add them to the project)
+RUN dotnet add package DevExpress.Xpo
+RUN dotnet add package Npgsql --version 4.1.9
+
 # Restore dependencies
 RUN dotnet restore
 
@@ -34,4 +38,7 @@ EXPOSE 5000
 ENTRYPOINT ["dotnet", "grussmann.cz.dll"]
 
 
-#use "docker run -d -p 8080:5000 app" to run the container
+# use 
+#docker build -t app . 
+#docker run -d -p 8080:5000 app
+# to run the container
